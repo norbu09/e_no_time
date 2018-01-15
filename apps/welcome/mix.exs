@@ -23,8 +23,8 @@ defmodule Welcome.Mixfile do
   def application do
     [
       mod: {Welcome.Application, []},
-      extra_applications: [:logger, :runtime_tools]
-    ]
+      extra_applications: [:logger, :runtime_tools, :comeonin, :argon2_elixir,
+                           :ueberauth, :ueberauth_identity] ]
   end
 
   # Specifies which paths to compile per environment.
@@ -36,12 +36,19 @@ defmodule Welcome.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      # Phoenix core dependencies
       {:phoenix, "~> 1.3.0"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_html, "~> 2.10"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+
+      # Authentication code dependencies
+      {:comeonin, "~> 4.0"},
+      {:argon2_elixir, "~> 1.2"},
+      {:ueberauth, "~> 0.4"},
+      {:ueberauth_identity, "~> 0.2"}
     ]
   end
 end
