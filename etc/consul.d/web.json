@@ -1,8 +1,8 @@
 {"service": 
   {
     "name": "web",
-    "tags": ["phoenix"],
-    "port": 80,
+    "tags": ["phoenix", "dev"],
+    "port": 4000,
     "check": 
     {
       "script": "curl localhost >/dev/null 2>&1",
