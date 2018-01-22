@@ -29,3 +29,6 @@ erl_crash.dump
 
 # ignore our log directory
 /logs
+
+# ignore local vault token
+.vault_tokens

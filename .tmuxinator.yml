@@ -1,0 +1,23 @@
+# ~/.tmuxinator/ndns.yml
+
+name: e_no_time
+root: ~/code/e_no_time
+
+# Runs before everything. Use it to start daemons etc.
+on_project_start: ~/code/e_no_time/start_dev
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim
+        - iex -S mix
+  - daemons:
+      layout: tiled
+      panes:
+        - sudo tail -f /var/log/couchdb/couch.log
+        - tail -f /var/log/rabbitmq/*log
+        - tail -f logs/consul.log
+        - tail -f logs/vault.log
+        - sudo tail -f /var/log/debug.log
+        - tail -f /var/log/messages
