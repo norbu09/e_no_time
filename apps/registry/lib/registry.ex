@@ -1,18 +1,21 @@
 defmodule ENoTime.Registry do
   @moduledoc """
-  Documentation for ENoTime.Registry.
+  This is the cenbtral registry that handles process registration in Consul
   """
 
   @doc """
-  Hello world.
+  iRegistering a worker is simple:
 
   ## Examples
 
-      iex> ENoTime.Registry.hello
-      :world
+      iex> ENoTime.Registry.add(name)
+      :ok
 
   """
-  def hello do
-    :world
+  def add(name) do
+    case Consul.Agent.Service.register(%{"Name" => name}) do
+	  {:ok, _response} -> :ok
+	  {:error, _response} -> :error
+	end
   end
 end
