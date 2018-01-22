@@ -7,7 +7,21 @@
     <meta name="author" content="norbu09">
 
     <title>Welcome</title>
-    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
+    <style type="text/css">
+    body {
+      background-color: #DADADA;
+    }
+    body > .grid {
+      height: 100%;
+    }
+    .image {
+      margin-top: -100px;
+    }
+    .column {
+      max-width: 450px;
+    }
+    </style>
   </head>
 
   <body>
@@ -37,61 +51,22 @@
       </div>
 
       <div class="ui vertical stripe segment">
-        <div class="ui middle aligned stackable grid container">
+		<%
+		  info  = get_flash(@conn, :info)
+		  error = get_flash(@conn, :error)
+		%>
+		<%= if info do %>
+		  <p class="ui info message"><%= info %></p>
+		<% end %>
+		<%= if error do %>
+		  <p class="ui error message"><%= error %></p>
+		<% end %>
 
-          <%
-            info  = get_flash(@conn, :info)
-            error = get_flash(@conn, :error)
-          %>
-
-          <%= if info do %>
-            <p class="ui info message"><%= info %></p>
-          <% end %>
-          <%= if error do %>
-            <p class="ui error message"><%= error %></p>
-          <% end %>
-
-          <%= render @view_module, @view_template, assigns %>
-        </div>
+		<%= render @view_module, @view_template, assigns %>
       </div>
     </div>
 
-   <div class="ui inverted vertical footer segment">
-      <div class="ui container">
-        <div class="ui stackable inverted divided equal height stackable grid">
-          <div class="three wide column">
-            <h4 class="ui inverted header">About</h4>
-            <div class="ui inverted link list">
-              <a href="#" class="item">Sitemap</a>
-              <a href="#" class="item">Contact Us</a>
-            </div>
-          </div>
-          <div class="three wide column">
-            <h4 class="ui inverted header">Services</h4>
-            <div class="ui inverted link list">
-              <a href="#" class="item">Terms & Conditions</a>
-            </div>
-          </div>
-          <div class="seven wide column">
-            <h4 class="ui inverted header">ENoTime</h4>
-            <p>thanks for using us, we really respect your attention.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-    <script>
-      $(document)
-        .ready(function() {
-
-          // create sidebar and attach to menu open
-          $('.ui.sidebar')
-            .sidebar('attach events', '.toc.item')
-          ;
-
-        })
-      ;
-    </script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.js"></script>
   </body>
 </html>
