@@ -3,9 +3,10 @@ defmodule WelcomeWeb.PageController do
   plug Ueberauth
 
   alias Ueberauth.Strategy.Helpers
+  alias Welcome.Content
 
   def index(conn, _params) do
-    render(conn, "index.html", [current_user: get_session(conn, :current_user), callback_url: Helpers.callback_url(conn)])
+    render(conn, "index.html", [content: Content.get_index(), current_user: get_session(conn, :current_user), callback_url: Helpers.callback_url(conn)])
   end
 
   def request(conn, _params) do

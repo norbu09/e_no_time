@@ -40,6 +40,8 @@ defmodule WelcomeWeb do
       import WelcomeWeb.Router.Helpers
       import WelcomeWeb.ErrorHelpers
       import WelcomeWeb.Gettext
+
+      import WelcomeWeb.ViewHelper
     end
   end
 

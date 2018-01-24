@@ -48,7 +48,11 @@ defmodule Welcome.Mixfile do
       {:comeonin, "~> 4.0"},
       {:argon2_elixir, "~> 1.2"},
       {:ueberauth, "~> 0.4"},
-      {:ueberauth_identity, "~> 0.2"}
+      {:ueberauth_identity, "~> 0.2"},
+
+      # content handling
+     {:contentful, github: "contentful-labs/contentful.ex"},
+     {:earmark, ">= 1.2.4"}
     ]
   end
 end

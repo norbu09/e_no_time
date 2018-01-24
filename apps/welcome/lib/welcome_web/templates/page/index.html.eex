@@ -1,74 +1,24 @@
-<div class="ui middle aligned center aligned grid">
-  <%= if @current_user do %>
-	<h2>Welcome, <%= @current_user.name %>!</h2>
-	<img src="<%= @current_user.avatar %>" class="img-circle"/>
-	<%= button "Logout", to: auth_path(@conn, :delete), method: :delete, class: "btn btn-danger" %>
-	<br>
-  <% else %>
-	<div class="column">
-	  <h2 class="ui teal image header">
-		<div class="content">
-		  Log-in to your account
-		</div>
-	  </h2>
-	  <%= form_tag @callback_url, method: "post", class: "ui large form" do %>
-		<div class="ui stacked segment">
-		  <div class="field">
-			<div class="ui left icon input">
-			  <i class="user icon"></i>
-			  <input type="text" name="email" placeholder="E-mail address">
-			</div>
-		  </div>
-		  <div class="field">
-			<div class="ui left icon input">
-			  <i class="lock icon"></i>
-			  <input type="password" name="password" placeholder="Password">
-			</div>
-		  </div>
-		  <div class="ui fluid large teal submit button">Login</div>
-		</div>
 
-		<div class="ui error message"></div>
-
-	  <% end %>
-
-	  <div class="ui message">
-		New to us? <a href="#">Sign Up</a>
-	  </div>
-	</div>
-  <% end %>
+<div class="ui text container">
+  <h1 class="ui inverted header">
+	<%= @content["headline"] %>
+  </h1>
+  <h2><%= @content["pitch"] %></h2>
+  <a href="<%= @content["ctaLink"] %>" class="ui huge primary button"><%= @content["cta"] %> <i class="right arrow icon"></i></a>
 </div>
 
-<!--
+</div>
 
-  <a class="btn btn-primary btn-lg" href="/auth/github">
-  <i class="fa fa-github"></i>
-  Sign in with GitHub
-  </a>
-  <br />
-  <a class="btn btn-primary btn-lg" href="/auth/facebook">
-  <i class="fa fa-facebook"></i>
-  Sign in with Facebook
-  </a>
-  <br />
-  <a class="btn btn-primary btn-lg" href="/auth/google">
-  <i class="fa fa-google"></i>
-  Sign in with Google
-  </a>
-  <br />
-  <a class="btn btn-primary btn-lg" href="/auth/slack">
-  <i class="fa fa-slack"></i>
-  Sign in with Slack
-  </a>
-  <br />
-  <a class="btn btn-primary btn-lg" href="/auth/twitter">
-  <i class="fa fa-twitter"></i>
-  Sign in with Twitter
-  </a>
-  <br />
-  <a class="btn btn-primary btn-lg" href="/auth/identity">
-  <i class="fa fa-user"></i>
-  Sign in with Username/Password
-  </a>
+<div class="ui vertical stripe segment">
+  <div class="ui middle aligned stackable grid container">
+	<%= for block <- @content["contentBlocks"] do %>
+	<div class="row">
+	  <div class="eight wide column">
+		<h3 class="ui header"><%= block["fields"]["title"] %></h3>
+		<p><%= markdown(block["fields"]["body"]) %></p>
+	  </div>
+	</div>
+    <% end %>
   </div>
--->
+</div>
+
