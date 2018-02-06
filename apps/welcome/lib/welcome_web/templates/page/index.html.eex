@@ -14,8 +14,13 @@
 	<%= for block <- @content["contentBlocks"] do %>
 	<div class="row">
 	  <div class="eight wide column">
-		<h3 class="ui header"><%= block["fields"]["title"] %></h3>
-		<p><%= markdown(block["fields"]["body"]) %></p>
+		<h3 class="ui header"><%= block["title"] %></h3>
+		<p><%= markdown(block["body"]) %></p>
+	  </div>
+	  <div class="four wide column">
+		<%= if block["image"] do %>
+		<img src="<%= block["image"]["file"]["url"] %>" alt="<%= block["image"]["title"] %>" />
+	    <% end %>
 	  </div>
 	</div>
     <% end %>

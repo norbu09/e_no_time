@@ -32,3 +32,6 @@ erl_crash.dump
 
 # ignore local vault token
 .vault_tokens
+
+# ignore local config
+local.exs

@@ -30,9 +30,11 @@ config :ueberauth, Ueberauth,
   ]
 
 config :welcome, Welcome.Content,
-  space_id: "SPACE_ID",
-  token: "TOKEN",
-  preview_token: "TOKEN"
+  index_entry: "Cs7HxBKTTikqMcAWesK4y",
+  space_id: "foo",
+  token: "bar",
+  prev_token: "baz",
+  mgmt_token: "bay"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

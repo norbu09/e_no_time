@@ -24,7 +24,7 @@ defmodule Welcome.Mixfile do
     [
       mod: {Welcome.Application, []},
       extra_applications: [:logger, :runtime_tools, :comeonin, :argon2_elixir,
-                           :ueberauth, :ueberauth_identity] ]
+                           :ueberauth, :ueberauth_identity, :excontentful, :earmark] ]
   end
 
   # Specifies which paths to compile per environment.
@@ -51,7 +51,7 @@ defmodule Welcome.Mixfile do
       {:ueberauth_identity, "~> 0.2"},
 
       # content handling
-     {:contentful, github: "contentful-labs/contentful.ex"},
+     {:excontentful, github: "norbu09/excontentful"},
      {:earmark, ">= 1.2.4"}
     ]
   end
