@@ -112,8 +112,7 @@ body {
             </a>
             <a class="active item" href="/">Home</a>
             <div class="right item">
-              <a class="ui inverted button" href="/login">Log in</a>
-              <a class="ui inverted button" href="/signup">Sign Up</a>
+              <a class="ui inverted button" href="/auth/internal">Sing up / Log in</a>
             </div>
           </div>
         </div>

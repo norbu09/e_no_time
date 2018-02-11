@@ -10,19 +10,16 @@ use Mix.Config
 
 # You can configure your application as:
 #
-#     config :registry, key: :value
+#     config :bouncer, key: :value
 #
 # and access this configuration in your application as:
 #
-#     Application.get_env(:registry, :key)
+#     Application.get_env(:bouncer, :key)
 #
 # You can also configure a 3rd-party app:
 #
 #     config :logger, level: :info
 #
-
-config :registry, :consul,
-	host: { "http://localhost:8500" }
 
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment
@@ -30,4 +27,4 @@ config :registry, :consul,
 # Configuration from the imported file will override the ones defined
 # here (which is why it is important to import them last).
 #
-import_config "#{Mix.env}.exs"
+#     import_config "#{Mix.env}.exs"
