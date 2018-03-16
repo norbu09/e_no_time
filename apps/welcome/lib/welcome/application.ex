@@ -14,6 +14,10 @@ defmodule Welcome.Application do
       # worker(Welcome.Worker, [arg1, arg2, arg3]),
     ]
 
+    # setup metrics endpoint
+    WelcomeWeb.Endpoint.Instrumenter.setup()
+    WelcomeWeb.MetricsExporter.setup()
+
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Welcome.Supervisor]

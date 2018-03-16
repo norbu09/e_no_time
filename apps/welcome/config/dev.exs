@@ -11,6 +11,7 @@ config :welcome, WelcomeWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
+  instrumenters: [WelcomeWeb.Endpoint.Instrumenter],
   watchers: []
 
 # ## SSL Support
@@ -46,6 +47,12 @@ config :logger, :console, format: "[$level] $message\n"
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
+
+config :prometheus, WelcomeWeb.Endpoint.Instrumenter,
+  controller_call_labels: [:controller, :action],
+  registry: :default,
+  duration_buckets: [100, 200],
+  duration_unit: :microseconds
 
 if File.exists?("apps/welcome/config/local.exs") do
   import_config "local.exs"

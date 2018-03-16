@@ -24,7 +24,8 @@ defmodule Welcome.Mixfile do
     [
       mod: {Welcome.Application, []},
       extra_applications: [:logger, :runtime_tools, :comeonin, :argon2_elixir,
-                           :ueberauth, :ueberauth_identity, :excontentful, :earmark] ]
+                           :ueberauth, :ueberauth_identity, :excontentful, :earmark,
+                           :prometheus_phoenix, :prometheus_plugs] ]
   end
 
   # Specifies which paths to compile per environment.
@@ -49,6 +50,10 @@ defmodule Welcome.Mixfile do
       {:argon2_elixir, "~> 1.2"},
       {:ueberauth, "~> 0.4"},
       {:ueberauth_identity, "~> 0.2"},
+
+      # metrics
+      {:prometheus_phoenix, ">= 1.2.0"},
+      {:prometheus_plugs, ">= 1.1.1"},
 
       # content handling
      {:excontentful, github: "norbu09/excontentful"},

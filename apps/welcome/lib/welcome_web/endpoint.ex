@@ -38,6 +38,7 @@ defmodule WelcomeWeb.Endpoint do
     key: "_welcome_key",
     signing_salt: "Ds8Med3i"
 
+  plug WelcomeWeb.MetricsExporter
   plug WelcomeWeb.Router
 
   @doc """
