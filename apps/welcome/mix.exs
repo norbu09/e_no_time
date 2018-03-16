@@ -23,7 +23,7 @@ defmodule Welcome.Mixfile do
   def application do
     [
       mod: {Welcome.Application, []},
-      extra_applications: [:logger, :runtime_tools, :comeonin, :argon2_elixir,
+      extra_applications: [:logger, :runtime_tools, :comeonin, :pbkdf2_elixir,
                            :ueberauth, :ueberauth_identity, :excontentful, :earmark,
                            :prometheus_phoenix, :prometheus_plugs] ]
   end
@@ -47,7 +47,8 @@ defmodule Welcome.Mixfile do
 
       # Authentication code dependencies
       {:comeonin, "~> 4.0"},
-      {:argon2_elixir, "~> 1.2"},
+      # {:argon2_elixir, "~> 1.2"},
+      {:pbkdf2_elixir, "~> 0.12"},
       {:ueberauth, "~> 0.4"},
       {:ueberauth_identity, "~> 0.2"},
 
