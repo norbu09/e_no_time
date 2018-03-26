@@ -57,8 +57,8 @@ defmodule Welcome.Mixfile do
       {:prometheus_plugs, ">= 1.1.1"},
 
       # content handling
-     {:excontentful, github: "norbu09/excontentful"},
-     {:earmark, ">= 1.2.4"}
+      {:excontentful, github: "norbu09/excontentful"},
+      {:earmark, ">= 1.2.4"}
     ]
   end
 end
