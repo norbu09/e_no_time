@@ -1,29 +1,30 @@
-
-<div class="ui text container">
-  <h1 class="ui inverted header">
-	<%= @content["headline"] %>
-  </h1>
-  <h2><%= @content["pitch"] %></h2>
-  <a href="<%= @content["ctaLink"] %>" class="ui huge primary button"><%= @content["cta"] %> <i class="right arrow icon"></i></a>
-</div>
-
-</div>
-
-<div class="ui vertical stripe segment">
-  <div class="ui middle aligned stackable grid container">
-	<%= for block <- @content["contentBlocks"] do %>
-	<div class="row">
-	  <div class="eight wide column">
-		<h3 class="ui header"><%= block["title"] %></h3>
-		<p><%= markdown(block["body"]) %></p>
-	  </div>
-	  <div class="four wide column">
-		<%= if block["image"] do %>
-		<img src="<%= block["image"]["file"]["url"] %>" alt="<%= block["image"]["title"] %>" />
-	    <% end %>
-	  </div>
-	</div>
-    <% end %>
+<header class="bg-gold sans-serif">
+  <div class="mw9 center pa4 pt5-ns ph7-l">
+    <h3 class="f2 f1-m f-headline-l measure-narrow lh-title mv0">
+      <span class="bg-black-90 lh-copy white pa1 tracked-tight">
+        <%= @content["headline"] %>
+      </span>
+    </h3>
+    <h4 class="f3 fw1 georgia i"><%= @content["pitch"] %></h4>
+    <a class="f6 link dim br1 ph4 pv3 mb2 dib white bg-dark-blue" href="<%= @content["ctaLink"] %>"><%= @content["cta"] %></a>
   </div>
-</div>
+</header>
 
+
+<section class="mw7 center">
+  <%= for block <- @content["contentBlocks"] do %>
+  <article class="pv4 bt bb b--black-10 ph3 ph0-l">
+    <div class="flex flex-column flex-row-ns">
+      <div class="w-100 w-60-ns pr3-ns order-2 order-1-ns">
+        <h1 class="f3 mt0 lh-title"><%= block["title"] %></h1>
+        <p class="f5 f4-l lh-copy">
+        <%= markdown(block["body"]) %>
+        </p>
+      </div>
+      <div class="pl3-ns order-1 order-2-ns mb4 mb0-ns w-100 w-40-ns">
+        <img src="<%= block["image"]["file"]["url"] %>" class="db" alt="<%= block["image"]["title"] %>" />
+      </div>
+    </div>
+  </article>
+  <% end %>
+</section>
